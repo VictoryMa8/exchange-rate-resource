@@ -3,7 +3,7 @@ import axios from "axios";
 import bodyParser from "body-parser";
 
 const app = express();
-const port = 3023;
+const port = 3000;
 
 const apiKey = "78a4e04c3f49a8ce4698ad7a"
 const apiURL = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`;
