@@ -26,11 +26,13 @@
     <div id="compare-div">
         <h2><label for="cars">Compare Two Currencies</label></h2>
         <form id="compare-form" action="/compare/" method="POST">
+            <input type="number" id="compare-amount-1" name="compare-amount-1">
             <select id="compare-1" name="compare-1">
                 <% for (let i = 0; i < locals.arrayTopTen.length; i++) { %>
                     <option value="<%=i%>"> <%= locals.arrayTopTen[i].name %> </option>
                 <% } %>
             </select>
+            <input type="number" id="compare-amount-2" name="compare-amount-2">
             <select id="compare-2" name="compare-2">
                 <% for (let i = 0; i < locals.arrayTopTen.length; i++) { %>
                     <option value="<%=i%>"> <%= locals.arrayTopTen[i].name %> </option>

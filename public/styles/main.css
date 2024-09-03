@@ -31,8 +31,8 @@ form {
     align-items: center;
 }
 
-form select, form button {
-    width: 30%;
+form select, form button, form input {
+    width: 20%;
     height: 30%;
     font-size: 2rem;
     font-family: sans-serif;
@@ -41,6 +41,6 @@ form select, form button {
 }
 
 form button {
-    width: 50%;
+    width: 20%;
     background: white;
 }
