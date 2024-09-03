@@ -32,7 +32,7 @@ form {
 }
 
 form select, form button, form input {
-    width: 20%;
+    width: 25%;
     height: 30%;
     font-size: 2rem;
     font-family: sans-serif;
@@ -41,6 +41,5 @@ form select, form button, form input {
 }
 
 form button {
-    width: 20%;
     background: white;
 }

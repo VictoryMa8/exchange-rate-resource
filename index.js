@@ -17,20 +17,18 @@ let comparison = {
     compareName2: '',
     compare1: 0,
     compare2: 0,
-    compareAmount1: 0,
-    compareAmount2: 0
+    compareAmount: 0
 }
 
 // function to find the comparison
-function compareEquation(compare1, compare2, compareAmount1, compareAmount2) {
-
-    //adding compareamount input to function 11:28pm 
-    compare1 = compare1 * compareAmount1;
-
-    compare1 = compare1 * 100;
-    compare2 = compare2 * 100;
+function compareEquation(compare1, compare2, compareAmount) {
+    compare1 *= 100;
+    compare2 *= 100;
     compare2 = compare2 / compare1;
     compare1 = compare1 / compare1;
+
+    compare1 *= compareAmount;
+    compare2 *= compareAmount;
     return [compare1, compare2];
 }
 
@@ -51,12 +49,10 @@ app.get("/", async (req, res) => {
         { place: "Republic of Singapore", name: "SGD", rate: result.data.conversion_rates.SGD }
     ];
     
-    let compareArray = compareEquation(comparison.compare1, comparison.compare2);
+    let compareArray = compareEquation(comparison.compare1, comparison.compare2, comparison.compareAmount);
     compareArray.push(comparison.compareName1);
     compareArray.push(comparison.compareName2);
     console.log(compareArray);
-    console.log(comparison.compareAmount1);
-    console.log(comparison.compareAmount2);
     
     res.render("index.ejs", { 
         data: result.data, 
@@ -93,8 +89,7 @@ app.post("/compare", async (req, res) => {
         comparison.compareName2 = arrayTopTen[parseInt(req.body["compare-2"])].name;
         comparison.compare1 = arrayTopTen[parseInt(req.body["compare-1"])].rate;
         comparison.compare2 = arrayTopTen[parseInt(req.body["compare-2"])].rate;
-        comparison.compareAmount1 = req.body["compare-amount-1"];
-        comparison.compareAmount2 = req.body["compare-amount-2"];
+        comparison.compareAmount = req.body["compare-amount"];
         
         // redirect afterwards
         res.redirect("/");
