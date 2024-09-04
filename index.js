@@ -84,6 +84,14 @@ app.post("/compare", async (req, res) => {
             { place: "Republic of Singapore", name: "SGD", rate: result.data.conversion_rates.SGD }
         ];
 
+        // array of all exchange rates with USD
+        let arrayOfAll = [];
+        Object.entries(result.data.conversion_rates).forEach(function([key, value]) {
+            arrayOfAll.push({ [key] : value });
+        });
+        
+        console.log(arrayOfAll);
+
         // comparison object includes: base currency, comparison, and each of the names
         comparison.compareName1 = arrayTopTen[parseInt(req.body["compare-1"])].name;
         comparison.compareName2 = arrayTopTen[parseInt(req.body["compare-2"])].name;
