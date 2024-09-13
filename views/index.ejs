@@ -32,6 +32,7 @@
                     <option value="<%=i%>"> <%= locals.arrayTopTen[i].name %> </option>
                 <% } %>
             </select>
+            <h2>→</h2>
             <select id="compare-2" name="compare-2">
                 <% for (let i = 0; i < locals.arrayTopTen.length; i++) { %>
                     <option value="<%=i%>"> <%= locals.arrayTopTen[i].name %> </option>
@@ -45,6 +46,7 @@
                 is equal to 
                 <%= locals.compareArray[1].toFixed(5) %> <%= locals.compareArray[3] %> </h1>
         <% } %>
-        </div>
+    </div>
+    <h2>Made by Victory Ma</h2>
 </body>
 </html>
