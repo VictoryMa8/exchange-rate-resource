@@ -21,15 +21,10 @@ let comparison = {
 }
 
 // function to find the comparison
-function compareEquation(compare1, compare2, compareAmount) {
-    compare1 *= 100;
-    compare2 *= 100;
-    compare2 = compare2 / compare1;
-    compare1 = compare1 / compare1;
-
-    compare1 *= compareAmount;
-    compare2 *= compareAmount;
-    return [compare1, compare2];
+function compareEquation(rate1, rate2, amount) {
+    const baseAmount = amount / rate1;
+    const comparedAmount = baseAmount * rate2;
+    return [amount, comparedAmount];
 }
 
 app.get("/", async (req, res) => {
@@ -52,7 +47,6 @@ app.get("/", async (req, res) => {
     let compareArray = compareEquation(comparison.compare1, comparison.compare2, comparison.compareAmount);
     compareArray.push(comparison.compareName1);
     compareArray.push(comparison.compareName2);
-    console.log(compareArray);
     
     res.render("index.ejs", { 
         data: result.data, 
@@ -89,8 +83,6 @@ app.post("/compare", async (req, res) => {
         Object.entries(result.data.conversion_rates).forEach(function([key, value]) {
             arrayOfAll.push({ [key] : value });
         });
-        
-        console.log(arrayOfAll);
 
         // comparison object includes: base currency, comparison, and each of the names
         comparison.compareName1 = arrayTopTen[parseInt(req.body["compare-1"])].name;

@@ -40,6 +40,28 @@ form select, form button, form input {
     border: 2px solid #83c5be;
 }
 
+form select:hover, form button:hover, form input:hover {
+    cursor: pointer;
+}
+
+#show-all-btn {
+    width: 25%;
+    font-size: 1.5rem;
+    font-family: sans-serif;
+    margin: 0px 5px;
+    margin-left: 20px;
+    border: 2px solid #83c5be;
+}
+
 form button {
     background: white;
+}
+
+#footer {
+    width: 75%;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
