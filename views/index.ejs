@@ -51,5 +51,50 @@
         <h2>Made by Victory Ma</h2>
         <button id="show-all-btn">Show All Rates</button>
     </footer>
+    <table id="table-of-all">
+        <tr>
+            <th>ISO 4217 Code</th>
+            <th>Exchange Rate With USD</th>
+        </tr>
+    <% for (let i = 0; i < locals.arrayOfAll.length; i++) { %>
+        <tr>
+            <td> <%= Object.keys(locals.arrayOfAll[i])[0]; %> </td>
+            <td> <%= Object.values(locals.arrayOfAll[i])[0]; %> </td>
+        </tr> 
+    <% } %>
+    </table>
+    <button onclick="scrollToTopFunction()" id="scroll-to-top">Scroll To Top</button>
+    <script>
+
+        // show all rates button
+        document.getElementById('show-all-btn').addEventListener('click', function() {
+          let tableOfAll = document.getElementById('table-of-all');
+          if (tableOfAll.style.display !== 'block') {
+            tableOfAll.style.display = 'block';
+            window.scroll(0, 700);
+          } else {
+            window.scroll(0, 0);
+            tableOfAll.style.display = 'none';
+          }
+        });
+
+        // scroll to top button
+        let scrollToTop = document.getElementById("scroll-to-top");
+        window.onscroll = function() { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+                scrollToTop.style.display = "block";
+            } else {
+                scrollToTop.style.display = "none";
+            }
+        }
+
+        function scrollToTopFunction() {
+            document.body.scrollTop = 0; // safari
+            document.documentElement.scrollTop = 0; // chrome, firefox, internet explorer, and opera
+        }
+
+    </script>
 </body>
 </html>

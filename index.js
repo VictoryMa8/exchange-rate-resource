@@ -43,6 +43,12 @@ app.get("/", async (req, res) => {
         { place: "Hong Kong", name: "HKD", rate: result.data.conversion_rates.HKD },
         { place: "Republic of Singapore", name: "SGD", rate: result.data.conversion_rates.SGD }
     ];
+
+    // array of all exchange rates with USD
+    let arrayOfAll = [];
+    Object.entries(result.data.conversion_rates).forEach(function([key, value]) {
+        arrayOfAll.push({ [key] : value });
+    });
     
     let compareArray = compareEquation(comparison.compare1, comparison.compare2, comparison.compareAmount);
     compareArray.push(comparison.compareName1);
@@ -51,7 +57,8 @@ app.get("/", async (req, res) => {
     res.render("index.ejs", { 
         data: result.data, 
         arrayTopTen: arrayTopTen,
-        compareArray: compareArray
+        compareArray: compareArray,
+        arrayOfAll: arrayOfAll
     });
     } catch (error) {
       console.error("Failed to make request:", error.message);
@@ -77,12 +84,6 @@ app.post("/compare", async (req, res) => {
             { place: "Hong Kong Special Administrative Region", name: "HKD", rate: result.data.conversion_rates.HKD },
             { place: "Republic of Singapore", name: "SGD", rate: result.data.conversion_rates.SGD }
         ];
-
-        // array of all exchange rates with USD
-        let arrayOfAll = [];
-        Object.entries(result.data.conversion_rates).forEach(function([key, value]) {
-            arrayOfAll.push({ [key] : value });
-        });
 
         // comparison object includes: base currency, comparison, and each of the names
         comparison.compareName1 = arrayTopTen[parseInt(req.body["compare-1"])].name;
