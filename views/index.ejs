@@ -53,13 +53,15 @@
     </footer>
     <table id="table-of-all">
         <tr>
+            <th>Most Common Place(s) of Utilization</th>
             <th>ISO 4217 Code</th>
             <th>Exchange Rate With USD</th>
         </tr>
     <% for (let i = 0; i < locals.arrayOfAll.length; i++) { %>
         <tr>
-            <td> <%= Object.keys(locals.arrayOfAll[i])[0]; %> </td>
-            <td> <%= Object.values(locals.arrayOfAll[i])[0]; %> </td>
+            <td> <%= locals.arrayOfAll[i].country %> </td>
+            <td> <%= locals.arrayOfAll[i].currencyCode %> </td>
+            <td> <%= locals.arrayOfAll[i].rate %> </td>
         </tr> 
     <% } %>
     </table>

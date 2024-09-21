@@ -4,21 +4,21 @@ html {
 
 body {
     font-family: sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     background-color: #006d77;
     color: white;
+    text-align: center;
 }
-table {
+table, #table-of-all {
     border-collapse: collapse;
     width: 75%;
+    margin: 20px auto;
 }
 
 td, th {
     border: 1px solid #83c5be;
     font-size: 1.5rem;
     padding: 5px;
+    text-align: center;
 }
 
 #compare-div {
@@ -26,7 +26,8 @@ td, th {
     flex-direction: column;
     align-items: center;
     border: 1px solid #83c5be;
-    width: 75%
+    width: 75%;
+    margin: 20px auto;
 }
 
 form {
@@ -63,7 +64,7 @@ form button {
 
 #footer {
     width: 75%;
-    margin: 5px;
+    margin: 5px auto;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -72,6 +73,17 @@ form button {
 
 #table-of-all {
     display: none;
+    border-collapse: collapse;
+    width: 75%;
+    margin: 20px auto;
+    table-layout: fixed;
+}
+
+#table-of-all td, #table-of-all th, td, th {
+    border: 1px solid #83c5be;
+    font-size: 1.5rem;
+    padding: 5px;
+    text-align: center;
 }
 
 #scroll-to-top {
