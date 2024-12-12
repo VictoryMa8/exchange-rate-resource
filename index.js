@@ -5,7 +5,9 @@ import bodyParser from "body-parser";
 const app = express();
 const port = 3023;
 
-const apiKey = "78a4e04c3f49a8ce4698ad7a"
+// figuring out .env file
+
+const apiKey = "";
 const apiURL = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`;
 
 app.use(express.static("public"));
