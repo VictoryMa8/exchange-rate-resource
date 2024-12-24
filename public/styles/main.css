@@ -8,6 +8,11 @@ body {
     color: white;
     text-align: center;
 }
+
+h1 {
+    font-family: 'roboto', sans-serif;
+}
+
 table, #table-of-all {
     border-collapse: collapse;
     width: 75%;
